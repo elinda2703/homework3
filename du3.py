@@ -21,16 +21,25 @@ for i in range (len(adresy['features'])):
     adresa_y=adresy['features'][i]['geometry']['coordinates'][0]
     souradnice_krovak=wgs2jtsk.transform(adresa_x,adresa_y)
     vzdalenosti_min[ulice_cislo]=None
-    print(souradnice_krovak)
     for j in range (len(kontejnery['features'])):
         
         kontejner_x=kontejnery['features'][j]['geometry']['coordinates'][0]
         kontejner_y=kontejnery['features'][j]['geometry']['coordinates'][1]
-        vzdalenost=sqrt(((souradnice_krovak)[0]-kontejner_x)**2+(souradnice_krovak[1]-kontejner_y)**2)
+        vzdalenost=sqrt((souradnice_krovak[0]-kontejner_x)**2+(souradnice_krovak[1]-kontejner_y)**2)
         if kontejnery['features'][j]['properties']['PRISTUP']=="volně":
             if vzdalenosti_min[ulice_cislo]==None or vzdalenosti_min[ulice_cislo]>vzdalenost:
                 vzdalenosti_min[ulice_cislo]=vzdalenost
+suma=0
+maximum=0
+for val in vzdalenosti_min.values():
+    suma+=val
+    if maximum<val:
+        maximum=val
 
 
+prumer=suma/len(vzdalenosti_min)
 
-#print(vzdalenosti_min)
+print(prumer)
+print(maximum)
+
+
