@@ -1,0 +1,6 @@
+Dokumentace - úkol 3
+
+Program načte z adresáře 2 soubory: kontejnery.geojson a adresy.geojson. U všech kontejnerů i adresních bodů jsou uvedeny souřadnice, souřadnice adresních bodů program převede do souřadnic S-JTSK (ve kterém jsou i souřadnice kontejnerů) pro jednodušší výpočet vzdáleností.
+Dále program přiřadí každému adresnímu bodu vzdálenost k nejbližšímu kontejneru (podobně jako funkce Near v GISu). Těm adresním bodům, které mají vlastní kontejner (jsou přístupné pouze obyvatelům domu a mají stejnou adresu jako adresní bod) je přiřazena vzdálenost 0 metrů.
+Program vypíše průměrnou vzdáleost k nejbližšímu kontejneru, medián těchto vzdáleností a jejich maximum.
+Program vytvoří soubor adresy_kontejnery.geojson, kde jsou data z původního souboru s adresami s přidaným ID nejbližšího kontejneru.
